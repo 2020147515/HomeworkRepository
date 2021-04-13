@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./main.css">
+        <title>Login</title>
+    </head>
+    <body>
+        <h1 class="title">Welcome to Internet-Programming Shop</h1>
+        <p class="nav-link">
+            <a href="./login.html">로그인</a>
+            <a href="./signup.html">회원가입</a>
+        </p>
+        <hr>
+        <h4>로그인 정보</h4>
+        <form method="POST">
+            <label>이메일</label>
+            <input type="email" name="email" required placeholder="example@domain.com" autocomplete="on">
+            <br>
+
+            <label>비밀번호</label>
+            <input type="password" name="password" required autocomplete="off">
+            <br>
+
+            <input type="submit" id="btn-submit" value="Submit">
+            <input type="reset" id="btn-reset" value="Clear">
+        </form>
+
+    </body>
+</html>
