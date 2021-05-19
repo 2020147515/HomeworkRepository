@@ -117,8 +117,22 @@ input {
 
 #filter-box {
   width: 30%;
+  height: 75vh;
   border: solid 2px black;
   float: left;
+}
+
+#category-container {
+  margin: 5px 0 0 10px;
+}
+
+#search-container {
+  margin: 10px 0 0 10px;
+}
+
+#btn-filter {
+  width: 150px;
+  margin: 5px 0 0 10px;
 }
 
 #product-container {
