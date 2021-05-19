@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./main.css">
+        <title>마켓컬리</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1 class="slide-text">안녕하세요 마켓컬리입니다.</h1>
+                <p>
+                    <a href="./index.html">메인페이지</a>
+                    <a href="./login.html">로그인</a>
+                    <a href="./signup.html">회원가입</a>
+                </p>
+            </div>
+            <hr>
+
+            <div class="body">
+                <div id="filter-box">
+                    <form>
+                        <div id="category-container">
+                            <label for="category">Choose a category: </label>
+                            <select name="category" id="category">
+                                <option value="All" selected>All</option>
+                                <option value="Ballad">Ballad</option>
+                                <option value="Dance">Dance</option>
+                                <option value="Hip-hop">Hip-hop</option>
+                                <option value="Rock">Rock</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="search-bar">Enter search term: </label>
+                            <input type="text" id="search-bar" placeholder="ex) Beenzino" />
+                        </div>
+                        <button id="btn-filter">Filter results</button>
+                    </form>
+                </div>
+
+                <div id="product-container">
+                    <div id="products">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+
+    <script>
+        fetch("./product.json")
+        .then((response) => {
+            return response.json();
+        })
+        .then((myJson) => {
+            initialize(myJson);
+            
+        })
+        .catch(error => console.log(error));
+
+        const productsDiv = document.querySelector('#products');
+        const category = document.querySelector('#category');
+        const filterBtn = document.querySelector('#btn-filter');
+        let displayCount = 8;
+
+        function initialize(products) {
+            const fullProducts = products;
+            
+            displayProduct = products.slice(0, displayCount);
+            for (let i = 0; i < displayProduct.length; i++) {
+                createProduct(displayProduct[i]);
+            }
+
+            category.onchange = (e) => {
+                e.preventDefault();
+                
+                if (category.value == "All") {
+                    updateDisplay(fullProducts.slice(0,displayCount));
+                } else {
+                    const filterResult = fullProducts.filter(product => product.genre === category.value);
+                    updateDisplay(filterResult);
+                }
+            }
+
+            filterBtn.onclick = (e) => {
+                const searchTerm = document.querySelector('#search-bar').value.trim();
+
+                e.preventDefault();
+
+                if (searchTerm === '') {
+                    updateDisplay(fullProducts.slice(0,displayCount));
+                } else {
+                    let filterResult = [];
+                    for (let i = 0; i < fullProducts.length; i++) {
+                        let productTitle = fullProducts[i].title;
+                        productTitle = productTitle.toLowerCase();
+
+                        if (productTitle.includes(searchTerm.toLowerCase())) {
+                            filterResult.push(fullProducts[i]);
+                        }
+                    }
+                    updateDisplay(filterResult);
+                }
+            }
+
+            window.onscroll = () => {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                    updateDisplay(fullProducts);
+                }
+            }
+        }
+
+        function updateDisplay(products) {
+            while(productsDiv.firstChild) {
+                productsDiv.removeChild(productsDiv.firstChild);
+            }
+
+            for (let i = 0; i < products.length; i++) {
+                createProduct(products[i]);
+            }
+        }
+
+        function createProduct(product) {
+            const productBox = document.createElement('div');
+            const productImg = document.createElement('img');
+            const productTitle = document.createElement('p');
+            const productPrice = document.createElement('p');
+
+            productBox.classList.add('product-box');
+            productImg.classList.add('product-image');
+            productImg.setAttribute('src', product.image);
+            productImg.setAttribute('width', 200);
+            productImg.setAttribute('height', 200);
+            productImg.onclick = descriptionDisplay;
+            productTitle.classList.add('product-title');
+            productTitle.innerHTML = product.title;
+            productPrice.classList.add('product-price');
+            productPrice.innerHTML = product.price;
+
+            productBox.appendChild(productImg);
+            productBox.appendChild(productTitle);
+            productBox.appendChild(productPrice)
+
+            productsDiv.appendChild(productBox);
+        }
+
+        function descriptionDisplay() {
+            this.nextSibling.setAttribute('style', 'display: block;');
+            this.nextSibling.nextSibling.setAttribute('style', 'display: block;');
+        }
+
+    </script>
+</html>

@@ -1,0 +1,80 @@
+[
+    {
+        "title": "24 : 26 - Beenzino",
+        "genre": "Hip-hop",
+        "price": "$10.99",
+        "image": "./images/24to26.jpg"
+    },
+    {
+        "title": "Ames Room - Supreme Team",
+        "genre": "Hip-hop",
+        "price": "$10.99",
+        "image": "./images/ames-room.jpg"
+    },
+    {
+        "title": "The Anecdote - ESENS",
+        "genre": "Hip-hop",
+        "price": "$10.99",
+        "image": "./images/anecdote.jpg"
+    },
+    {
+        "title": "Da Capo - 토이",
+        "genre": "Ballad",
+        "price": "$10.99",
+        "image": "./images/da-capo.jpg"
+    },
+    {
+        "title": "Escaping Gravity - NELL",
+        "genre": "Rock",
+        "price": "$10.99",
+        "image": "./images/escaping-gravity.jpg"
+    },
+    {
+        "title": "Goodbye - 박효신",
+        "genre": "Ballad",
+        "price": "$9.99",
+        "image": "./images/goodbye.jpg"
+    },
+    {
+        "title": "Love Me Right - EXO",
+        "genre": "Dance",
+        "price": "$8.99",
+        "image": "./images/love-me-right.jpg"
+    },
+    {
+        "title": "Odd - 샤이니 (SHINee)",
+        "genre": "Dance",
+        "price": "$10.99",
+        "image": "./images/odd.jpg"
+    },
+    {
+        "title": "Still Alive - BIGBANG",
+        "genre": "Dance",
+        "price": "$10.99",
+        "image": "./images/still-alive.jpg"
+    },
+    {
+        "title": "We've Done Something Wonderful - Epik High",
+        "genre": "Hip-hop",
+        "price": "$10.99",
+        "image": "./images/we've-done-something-wonderful.jpg"
+    },
+    {
+        "title": "X&Y - Coldplay",
+        "genre": "Rock",
+        "price": "$10.99",
+        "image": "./images/x&y.jpg"
+    },
+    {
+        "title": "돈 벌 시간 2 - 창모",
+        "genre": "Hip-hop",
+        "price": "$10.99",
+        "image": "./images/changmo.jpg"
+    },
+    {
+        "title": "버스커 버스커 1집 - 버스커 버스커",
+        "genre": "Rock",
+        "price": "$10.99",
+        "image": "./images/busker.jpg"
+    }
+]

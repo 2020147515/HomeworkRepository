@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./main.css">
+        <title>Sign-up</title>
+    </head>
+    <body>
+        <h1 class="title">Welcome to Internet-Programming Shop</h1>
+        <p class="nav-link">
+            <a href="./index.html">메인페이지</a>
+            <a href="./login.html">로그인</a>
+            <a href="./signup.html">회원가입</a>
+        </p>
+        <hr>
+        <h4>개인정보 (필수)</h4>
+        <form class="form" method="POST">
+            <label class="label">이름</label>
+            <input type="text" name="name" autofocus autocomplete="on">
+            <br>
+
+            <label class="label">이메일</label>
+            <input type="email" name="email" required placeholder="example@domain.com" autocomplete="on">
+            <br>
+
+            <label class="label">생일</label>
+            <input type="date" name="birthday" value="2000-01-01">
+            <br>
+
+            <label class="label">전화번호</label>
+            <input type="tel" name="phone" pattern="\(\d{3}\) \d{4}-\d{4}" placeholder="(###) ####-####">
+            <br>
+
+            <label class="label">비밀번호</label>
+            <input type="password" name="password" required autocomplete="off">
+            <br>
+
+            <label class="label">비밀번호 확인</label>
+            <input type="password" name="confirmPassword" required autocomplete="off">
+            <br>
+
+            <input type="submit" id="btn-submit" value="Submit">
+            <input type="reset" id="btn-reset" value="Clear">
+        </form>
+
+        <hr>
+
+    </body>
+</html>
